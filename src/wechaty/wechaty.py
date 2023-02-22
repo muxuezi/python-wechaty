@@ -27,7 +27,7 @@ import asyncio
 import logging
 import traceback
 from datetime import datetime
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import (
     # TYPE_CHECKING,
     Any,
@@ -115,7 +115,8 @@ class WechatyOptions:
     """
     name: str = 'Python Wechaty'
     puppet: Union[PuppetModuleName, Puppet] = 'wechaty-puppet-service'
-    puppet_options: PuppetOptions = PuppetOptions()
+    # puppet_options: PuppetOptions = PuppetOptions()
+    puppet_options: PuppetOptions = field(default_factory=PuppetOptions)
 
     host: str = '0.0.0.0'
     port: int = 5000
